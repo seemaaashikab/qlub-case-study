@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The hardest bill to close | Seema Aashikab for qlub</title>
+<meta name="description" content="An outside-in product case study for qlub's Product Intern roles, by Seema Aashikab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F6F8; --surface:#FFFFFF; --ink:#242424; --muted:#5E6070; --rule:#E2E2E8;
+  --accent:#7D00D4; --accent-soft:#F3E9FC; --accent-ink:#FFFFFF;
+  --paid:#0E7C5A; --paid-soft:#E4F4EC; --open:#A45A0B; --open-soft:#FBF0E1;
+  --sans:"Figtree","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161618; --surface:#202024; --ink:#ECECEF; --muted:#A6A7B3; --rule:#34343B;
+    --accent:#B37BFF; --accent-soft:#2B1E3D; --accent-ink:#161618;
+    --paid:#4CC79A; --paid-soft:#17302A; --open:#E9A55A; --open-soft:#34281A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161618; --surface:#202024; --ink:#ECECEF; --muted:#A6A7B3; --rule:#34343B;
+  --accent:#B37BFF; --accent-soft:#2B1E3D; --accent-ink:#161618;
+  --paid:#4CC79A; --paid-soft:#17302A; --open:#E9A55A; --open-soft:#34281A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px;text-decoration-thickness:2px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.num{font-variant-numeric:tabular-nums}
+section{padding:64px 0;border-top:1px solid var(--rule)}
+h2{font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.14;letter-spacing:-0.02em;margin:0 0 12px;max-width:30ch}
+h3{font-size:18px;margin:28px 0 8px}
+p{margin:0 0 14px;max-width:66ch}
+.lead{font-size:18px;color:var(--muted);max-width:62ch}
+.limit{font-size:15px;color:var(--muted);border-left:3px solid var(--accent);padding:2px 0 2px 14px;max-width:62ch;margin-top:20px}
+.src{font-size:13px;color:var(--muted);white-space:nowrap}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center;padding-top:60px;padding-bottom:56px}
+.byline{font-size:15px;color:var(--muted);margin-bottom:16px}
+h1{font-size:clamp(2.2rem,4.8vw,3.5rem);line-height:1.05;letter-spacing:-0.03em;font-weight:800;margin:0 0 18px;max-width:16ch}
+.sub{font-size:19px;max-width:44ch;margin-bottom:24px}
+.jump{display:flex;flex-wrap:wrap;gap:10px}
+.jump a{text-decoration:none;font-weight:600;font-size:15px;border-radius:999px;padding:10px 18px;border:1.5px solid var(--accent);color:var(--accent)}
+.jump a.primary{background:var(--accent);color:var(--accent-ink)}
+
+.phones{display:flex;gap:18px;justify-content:center;align-items:flex-start}
+.ph{width:200px;border:2.5px solid var(--ink);border-radius:30px;background:var(--surface);padding:18px 14px 20px;box-shadow:0 20px 40px -26px rgba(60,20,90,.4)}
+.ph .who{font-size:12.5px;color:var(--muted);text-align:center;margin-bottom:10px}
+.ph .big{font-size:15px;font-weight:700;text-align:center}
+.ph .amt{font-size:24px;font-weight:800;text-align:center;margin:4px 0 8px}
+.ph .ok{display:block;text-align:center;font-weight:700;color:var(--paid);background:var(--paid-soft);border-radius:10px;padding:6px}
+.ph .q{display:block;text-align:center;font-weight:700;color:var(--open);background:var(--open-soft);border-radius:10px;padding:6px}
+.ph .rowm{display:flex;justify-content:space-between;font-size:13.5px;padding:5px 0;border-top:1px dashed var(--rule)}
+.phcap{text-align:center;font-size:15px;color:var(--muted);margin:16px auto 0;max-width:40ch}
+
+/* Demo */
+.demo{background:var(--surface);border:1px solid var(--rule);border-radius:20px;padding:22px;margin-top:22px}
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;background:var(--accent-soft);border-radius:14px;padding:14px 16px;margin-bottom:20px}
+.ctrl .stepno{font-size:13px;font-weight:700;color:var(--accent)}
+.ctrl .cap{font-size:16.5px;font-weight:600;margin:2px 0 0;max-width:60ch}
+.ctrl .btns{display:flex;gap:8px}
+.btn{font:inherit;font-weight:700;font-size:15px;border-radius:999px;padding:11px 22px;cursor:pointer;border:0;background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--accent);padding:9.5px 18px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.demo-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:22px}
+.demo-grid>*{min-width:0}
+.receipt h4,.split h4{margin:0 0 8px;font-size:15px}
+.receipt .it{display:flex;justify-content:space-between;gap:12px;font-size:15px;padding:5px 0}
+.receipt .it small{color:var(--muted);font-size:13px}
+.receipt .sh{color:var(--accent);font-weight:700;font-size:12px;border:1px solid var(--accent);border-radius:999px;padding:0 7px;margin-left:6px;white-space:nowrap}
+.receipt .div{border-top:1px dashed var(--rule);margin:6px 0}
+.receipt .tot{font-weight:800;font-size:17px;border-top:2px solid var(--ink);margin-top:6px;padding-top:8px}
+.tw{overflow-x:auto;margin-top:18px}
+table{border-collapse:collapse;width:100%;min-width:500px;font-size:14.5px}
+th,td{text-align:right;padding:8px 8px;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left}
+th{font-size:13px;color:var(--muted);font-weight:600}
+td.st{text-align:left}
+.chip{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 9px;white-space:nowrap;display:inline-block}
+.chip.qr{background:var(--paid-soft);color:var(--paid)}
+.chip.card{background:var(--accent-soft);color:var(--accent)}
+.chip.no{background:var(--open-soft);color:var(--open)}
+tr.flash td{animation:fl 1.2s ease-out}
+@keyframes fl{from{background:var(--accent-soft)}to{background:transparent}}
+@media (prefers-reduced-motion:reduce){tr.flash td{animation:none}}
+.wphone{border:2.5px solid var(--ink);border-radius:30px;padding:18px 16px 20px;background:var(--surface);align-self:start}
+.wphone .who{font-size:12.5px;color:var(--muted)}
+.wphone .t{font-weight:800;font-size:18px;margin-bottom:8px}
+.wphone .rowm{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:6px 0;border-top:1px dashed var(--rule)}
+.wphone .left{margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--open-soft);color:var(--open);font-weight:800;display:flex;justify-content:space-between}
+.wphone .left.zero{background:var(--paid-soft);color:var(--paid)}
+.demo-note{font-size:13.5px;color:var(--muted);margin:14px 0 0}
+
+.evidence{list-style:none;padding:0;margin:0;display:grid;gap:10px;max-width:780px}
+.evidence li{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 14px;font-size:15.5px}
+.evidence b{display:block}
+.metrics{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:8px 0 0}
+.metrics li{border:1px solid var(--rule);background:var(--surface);border-radius:8px;padding:6px 12px;font-size:15px}
+.plain{padding-left:22px;max-width:66ch}
+.plain li{margin:6px 0}
+
+.tablewrap{overflow-x:auto;margin:18px 0 6px;border:1px solid var(--rule);border-radius:14px;background:var(--surface)}
+.bench{min-width:620px;font-size:15px}
+.bench th,.bench td{text-align:left;padding:12px 14px;vertical-align:top}
+.bench tr:last-child td{border-bottom:0}
+.yes{color:var(--paid);font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:6px}
+.qs{list-style:none;padding:0;margin:0}
+.qs li{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px;margin-bottom:9px;font-size:15.5px}
+.qs li span{display:block;font-size:12.5px;font-weight:700;color:var(--accent)}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{font-size:15px;margin:0}
+.card .idea{border-top:1px solid var(--rule);padding-top:10px;margin-top:10px}
+
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:14px 36px;margin-top:10px;max-width:900px}
+.fit b{display:block}
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.contact a{font-weight:600;text-decoration:none;border:1.5px solid var(--rule);border-radius:999px;padding:9px 16px;font-size:15px;background:var(--surface)}
+.contact a.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+footer{border-top:1px solid var(--rule);padding:36px 0 48px;font-size:14px;color:var(--muted)}
+footer ol{padding-left:20px;columns:2;column-gap:40px;margin:14px 0 0}
+footer li{margin:4px 0;break-inside:avoid;overflow-wrap:anywhere}
+
+@media (max-width:880px){
+  .hero{grid-template-columns:1fr;gap:34px;padding-top:44px;padding-bottom:44px}
+  .demo-grid,.two,.fit,.cards{grid-template-columns:1fr}
+  .wphone{order:-1}
+  footer ol{columns:1}
+}
+@media (max-width:520px){
+  .ph{width:46%;padding:14px 10px 16px;border-radius:24px}
+  .ph .amt{font-size:20px}
+  section{padding:48px 0}
+  .ctrl .btns{width:100%}
+  .ctrl .btns .btn:not(.ghost){flex:1}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div>
+    <div class="byline">Seema Aashikab, a product case study for qlub</div>
+    <h1>The hardest bill to close: one table, two ways to pay.</h1>
+    <p class="sub">Some guests scan the QR, one hands a card to the waiter's phone, and the shared plates belong to nobody. Here's how I'd make sure that table closes cleanly, and how I'd test whether qlub already does.</p>
+    <div class="jump">
+      <a class="primary" href="#demo">Product Intern: see the fix in 4 clicks</a>
+      <a href="#softpos">SoftPOS: see the landscape</a>
+    </div>
+  </div>
+  <div>
+    <div class="phones" aria-label="A guest's phone and the waiter's phone at the same table">
+      <div class="ph">
+        <div class="who">Guest 1's phone (QR)</div>
+        <div class="big">Table 12</div>
+        <div class="amt num">AED 92.40</div>
+        <span class="ok">Paid</span>
+      </div>
+      <div class="ph">
+        <div class="who">Waiter's phone (SoftPOS)</div>
+        <div class="big">Table 12</div>
+        <div class="rowm"><span>Guest 1</span><span>?</span></div>
+        <div class="rowm"><span>Guest 2</span><span>?</span></div>
+        <div class="rowm" style="margin-bottom:8px"><span>Shared plates</span><span>?</span></div>
+        <span class="q">Who still owes what?</span>
+      </div>
+    </div>
+    <p class="phcap">The question I'd test first: does every payment land on one bill, whichever way it's made?</p>
+  </div>
+</header>
+
+<main>
+
+<section id="demo">
+  <div class="wrap">
+    <h2>The fix in 4 clicks: one live bill, whichever way guests pay.</h2>
+    <p class="lead">Press Next to walk through Table 12 closing, one payment at a time.</p>
+
+    <div class="demo">
+      <div class="ctrl">
+        <div>
+          <div class="stepno" id="stepno">Start</div>
+          <p class="cap" id="cap">Four guests, four dishes, and three shared items. Nobody has paid yet.</p>
+        </div>
+        <div class="btns">
+          <button class="btn ghost" type="button" id="back" disabled>Back</button>
+          <button class="btn" type="button" id="next">Next</button>
+        </div>
+      </div>
+
+      <div class="demo-grid">
+        <div>
+          <div class="receipt">
+            <h4>Table 12 bill</h4>
+            <div class="it"><span>Halloumi salad <small>Guest 1</small></span><span class="num">58.00</span></div>
+            <div class="it"><span>Chicken shawarma plate <small>Guest 2</small></span><span class="num">62.00</span></div>
+            <div class="it"><span>Mushroom risotto <small>Guest 3</small></span><span class="num">74.00</span></div>
+            <div class="it"><span>Wagyu burger <small>Guest 4</small></span><span class="num">88.00</span></div>
+            <div class="div"></div>
+            <div class="it"><span>1 mezze platter<span class="sh">Shared</span></span><span class="num">66.00</span></div>
+            <div class="it"><span>1 bread basket<span class="sh">Shared</span></span><span class="num">18.00</span></div>
+            <div class="it"><span>2 still water 1L, 18.00 each<span class="sh">Shared</span></span><span class="num">36.00</span></div>
+            <div class="div"></div>
+            <div class="it"><span>Subtotal</span><span class="num">402.00</span></div>
+            <div class="it"><span>VAT 5%</span><span class="num">20.10</span></div>
+            <div class="it tot"><span>Total (AED)</span><span class="num">422.10</span></div>
+          </div>
+
+          <div class="tw">
+            <table aria-label="Who pays what">
+              <thead><tr><th>Guest</th><th>Own dish</th><th>Shared</th><th>VAT 5%</th><th>Pays</th><th style="text-align:left">Status</th></tr></thead>
+              <tbody id="split"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="wphone" aria-live="polite">
+          <div class="who">Waiter's phone (SoftPOS)</div>
+          <div class="t">Table 12</div>
+          <div id="wrows"></div>
+          <div class="left" id="wleft"><span>Left to collect</span><span class="num" id="wleftamt">AED 422.10</span></div>
+        </div>
+      </div>
+      <p class="demo-note">Illustrative prototype with made-up prices, prices before VAT and VAT added at the end. Not qlub's actual product. The shared items are split equally across the 4 guests (AED 30 each) unless someone opts out.</p>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <h2>Why this moment matters: it's the known weak spot of pay-at-table.</h2>
+    <p class="lead">This is a known risk across the category, not a known qlub bug.</p>
+    <ul class="evidence">
+      <li><b>The industry names it as where QR payment breaks.</b>Setup guides list uneven splits, disputed items and payments tried twice. One describes a guest paying by QR while a server brings a card machine for another guest, where slow status updates risk double handling. <span class="src">[1] [2]</span></li>
+      <li><b>Competitors now sell the fix as a feature.</b>HungryPay says staff see the outstanding balance while guests pay by phone and through a server, and Paybyrd lists partial payments and mixed settlement. <span class="src">[3] [4]</span></li>
+      <li><b>For qlub, mixed tables are likely common.</b>A qlub product leader reports SoftPOS reached 30% of payment value in Singapore and 50% in Australia. That mixed tables follow is my inference, not their figure. <span class="src">[5]</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="test">
+  <div class="wrap">
+    <h2>How I'd test it: qlub's own data first, then the restaurant floor.</h2>
+    <ul class="plain">
+      <li><b>Size it:</b> what share of tables are paid with more than one method, and how long they take from first payment to closed check.</li>
+      <li><b>Watch it:</b> shadow three busy dinner services, in a high-SoftPOS market and a UAE venue, and follow every mixed table.</li>
+      <li><b>Decide:</b> if mixed tables are rare or already close cleanly, drop it and move to the next problem.</li>
+    </ul>
+    <h3>What I'd measure</h3>
+    <ul class="metrics">
+      <li>Mixed tables closed without staff stepping in</li>
+      <li>Time from first payment to closed check</li>
+      <li>Double-payment refunds</li>
+    </ul>
+    <p class="limit">I haven't used qlub's mixed-table flow, and competitors already advertise mixed settlement, so qlub may handle this well today. The test is how it holds up on a busy Friday night.</p>
+  </div>
+</section>
+
+<section id="softpos">
+  <div class="wrap">
+    <h2>The SoftPOS landscape: tap-to-pay is common, restaurant-built tap-to-pay isn't.</h2>
+    <div class="tablewrap">
+      <table class="bench">
+        <thead><tr><th>Product</th><th>Live in the UAE</th><th>Built for restaurants</th><th>Also offers QR pay-at-table</th></tr></thead>
+        <tbody>
+          <tr><td><b>qlub SoftPOS</b></td><td class="yes">Yes</td><td class="yes">Yes: split by item, tips, POS closing <span class="src">[6]</span></td><td class="yes">Yes</td></tr>
+          <tr><td>sunday</td><td>Launch planned from January 2026 <span class="src">[7]</span></td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>Tap to Pay on iPhone, via Adyen, Magnati, Network International</td><td class="yes">Yes, since December 2024 <span class="src">[8]</span></td><td>General purpose</td><td>Not on its own</td></tr>
+          <tr><td>Ziina</td><td class="yes">Yes, since April 2025 <span class="src">[9]</span></td><td>General merchants</td><td>Not that I found</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="limit">Only verified facts are filled in. Features, UX and fees need hands-on testing.</p>
+    <div class="two">
+      <div>
+        <h3>My research plan</h3>
+        <ul class="plain">
+          <li><b>Who:</b> 8 to 10 merchants across high and low SoftPOS markets, 6 to 8 servers, 10 diners.</li>
+          <li><b>How:</b> shadow services, short interviews, review and ticket tagging, device activity by venue.</li>
+          <li><b>Output:</b> a readout on what's true, what isn't, and what the revamp should do first.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Questions I'd ask</h3>
+        <ul class="qs">
+          <li><span>Merchant</span>Walk me through closing tables on your last busy Friday.</li>
+          <li><span>Merchant</span>What would make you stop using SoftPOS?</li>
+          <li><span>Server</span>When do you reach for your phone instead of pointing to the QR?</li>
+          <li><span>Server</span>Tell me about the last payment that went wrong.</li>
+          <li><span>Diner</span>What made you hand over your card instead of scanning?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2>Also worth exploring: three smaller threads.</h2>
+    <div class="cards">
+      <div class="card"><h3>Charges shown late</h3><p>qlub's rewards app is rated 3.0, and one August 2026 review says tips and service charges appeared only at the payment step. <span class="src">[10]</span></p><p class="idea">Show every charge on the first screen, with the tip clearly optional.</p></div>
+      <div class="card"><h3>Proof at venue level</h3><p>With sunday planning a UAE launch, restaurants will compare providers more closely. <span class="src">[7]</span></p><p class="idea">A monthly report from each venue's own numbers: tips, time to pay, payment mix.</p></div>
+      <div class="card"><h3>Staff confidence</h3><p>Handheld devices staff don't trust tend to go unused, and phones add battery and connection risks. <span class="src">[11] [12]</span></p><p class="idea">A practice mode, a "my tips today" view, and a device check before service.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About me: MSc Data Science, Heriot-Watt Dubai, available now.</h2>
+    <div class="fit">
+      <div><b>Rolled out a new fintech platform</b>At Emirates Islamic Bank, I benchmarked a new AI platform against the legacy process, gathered feedback from customers and users, and trained teams across 3 branches.</div>
+      <div><b>Found where users drop off</b>I analysed a 9.2M-session e-commerce funnel and pinpointed cart-to-purchase as the biggest leak.</div>
+      <div><b>Turned research into a recommendation</b>For a freelance client, I scored 3 logistics partners on 6 criteria and delivered a recommendation and a 90-day plan.</div>
+      <div><b>Build fast with AI</b>I built my portfolio site and an LLM agent with Claude, and designed and built this page the same way.</div>
+    </div>
+    <div class="contact">
+      <a class="primary" href="mailto:seemaaashikab@gmail.com">seemaaashikab@gmail.com</a>
+      <a href="https://linkedin.com/in/seema-aashikab-anees-ahmed">LinkedIn</a>
+      <a href="https://seemaaashikab.github.io/seemaaashikab">Portfolio</a>
+      <a href="https://github.com/seemaaashikab">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Independent case study by Seema Aashikab, built from public sources in September 2026. Not affiliated with or endorsed by qlub.</p>
+    <ol>
+      <li><a href="https://www.restomas.com/blog/qr-code-contactless-payments-for-restaurants-setup-and-staff-guide">QR contactless payments: setup and staff guide</a>, Restomas, Jul 2026</li>
+      <li><a href="https://www.restomas.com/blog/qr-code-contactless-payments-for-restaurants-a-practical-setup-guide">QR contactless payments: a practical setup guide</a>, Restomas, Aug 2026</li>
+      <li><a href="https://www.hungryhungry.com/en/blogs/customers-split-bill-themselves-without-staff">How customers split the bill without staff</a>, HungryHungry, Jul 2026</li>
+      <li><a href="https://www.paybyrd.com/restaurants">Restaurant payments</a>, Paybyrd</li>
+      <li><a href="https://www.linkedin.com/in/sahar-rhi/">Product Director, qlub</a>, LinkedIn</li>
+      <li><a href="https://qlub.io/ae/en/softpos-terminal">qlub SoftPOS Terminal</a>, qlub.io</li>
+      <li><a href="https://finance.yahoo.com/news/restaurant-payment-platform-sunday-lands-102905706.html">sunday lands $21m Series B</a>, Verdict Food Service, Nov 2025</li>
+      <li><a href="https://finance.yahoo.com/news/apple-launches-tap-pay-iphone-123926101.html">Apple launches Tap to Pay on iPhone in UAE</a>, Dec 2024</li>
+      <li><a href="https://en.wikipedia.org/wiki/Ziina_-_UAE_FinTech">Ziina</a>, Wikipedia</li>
+      <li><a href="https://play.google.com/store/apps/details?id=org.qlub.plus&hl=en_US">Qlub: Dining, Offers &amp; Rewards</a>, Google Play</li>
+      <li><a href="https://pctechmag.com/2026/05/handheld-pos-systems-for-restaurants-faster-tableside-ordering-and-payments/">Handheld POS systems for restaurants</a>, PC Tech Magazine, May 2026</li>
+      <li><a href="https://blog.basistheory.com/softpos-devices-terminals">SoftPOS: turning devices into terminals</a>, Basis Theory</li>
+    </ol>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var G=['Guest 1','Guest 2','Guest 3','Guest 4'];
+  function r(own,sh,st){var vat=Math.round((own+sh)*5)/100;return {own:own,sh:sh,vat:vat,tot:Math.round((own+sh+vat)*100)/100,st:st};}
+  var steps=[
+    {cap:'Four guests, four dishes, and three shared items. Nobody has paid yet.',
+     rows:[r(58,30,'no'),r(62,30,'no'),r(74,30,'no'),r(88,30,'no')],hl:-1},
+    {cap:'Guest 1 scans the QR and pays their dish plus a quarter of the shared items. The waiter\'s phone updates instantly.',
+     rows:[r(58,30,'qr'),r(62,30,'no'),r(74,30,'no'),r(88,30,'no')],hl:0},
+    {cap:'Guest 2 pays for their dish only. Their AED 30 share of the shared items moves to the two guests still to pay, AED 15 each, so nothing is left unpaid.',
+     rows:[r(58,30,'qr'),r(62,0,'qr-dish'),r(74,45,'no'),r(88,45,'no')],hl:1},
+    {cap:'Guest 3 hands their card to the waiter. The phone already knows who paid by QR, so it charges only Guest 3\'s share, and nobody can be charged twice.',
+     rows:[r(58,30,'qr'),r(62,0,'qr-dish'),r(74,45,'card'),r(88,45,'no')],hl:2},
+    {cap:'Guest 4 pays the rest by QR. The bill reaches zero and the check closes in the POS by itself.',
+     rows:[r(58,30,'qr'),r(62,0,'qr-dish'),r(74,45,'card'),r(88,45,'qr')],hl:3}
+  ];
+  var TOTAL=422.10, i=0;
+  var chip={no:'<span class="chip no">Not paid</span>',qr:'<span class="chip qr">Paid by QR</span>','qr-dish':'<span class="chip qr">Paid by QR, dish only</span>',card:'<span class="chip card">Paid on waiter\'s phone</span>'};
+  var wlab={no:'Not paid',qr:'Paid by QR','qr-dish':'Paid by QR',card:'Paid here'};
+  function f(n){return n.toFixed(2)}
+  function render(){
+    var s=steps[i];
+    document.getElementById('stepno').textContent=i===0?'Start':'Step '+i+' of 4';
+    document.getElementById('cap').textContent=s.cap;
+    var tb=document.getElementById('split');tb.innerHTML='';
+    var wr=document.getElementById('wrows');wr.innerHTML='';
+    var paid=0;
+    s.rows.forEach(function(x,k){
+      var tr=document.createElement('tr');if(k===s.hl)tr.className='flash';
+      tr.innerHTML='<td>'+G[k]+'</td><td class="num">'+f(x.own)+'</td><td class="num">'+f(x.sh)+'</td><td class="num">'+f(x.vat)+'</td><td class="num"><b>'+f(x.tot)+'</b></td><td class="st">'+chip[x.st]+'</td>';
+      tb.appendChild(tr);
+      if(x.st!=='no')paid+=x.tot;
+      var d=document.createElement('div');d.className='rowm';
+      d.innerHTML='<span>'+G[k]+'</span><span>'+(x.st==='no'?'Owes AED '+f(x.tot):wlab[x.st])+'</span>';
+      wr.appendChild(d);
+    });
+    var left=Math.max(0,Math.round((TOTAL-paid)*100)/100);
+    var L=document.getElementById('wleft');
+    if(left===0){L.className='left zero';L.innerHTML='<span>Table closed in POS</span><span class="num">AED 0.00</span>';}
+    else{L.className='left';L.innerHTML='<span>Left to collect</span><span class="num">AED '+f(left)+'</span>';}
+    document.getElementById('back').disabled=i===0;
+    var n=document.getElementById('next');
+    n.textContent=i===steps.length-1?'Start over':'Next';
+  }
+  document.getElementById('next').addEventListener('click',function(){i=(i===steps.length-1)?0:i+1;render();});
+  document.getElementById('back').addEventListener('click',function(){if(i>0){i--;render();}});
+  render();
+})();
+</script>
+</body>
+</html>
